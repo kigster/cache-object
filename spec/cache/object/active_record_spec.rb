@@ -18,6 +18,9 @@ RSpec.describe Cache::Object::ActiveRecord do
     def self.find(id)
     end
 
+    def self.find_by(name: )
+    end
+
     def self.find_by_name_and_age(name, age)
     end
   end
@@ -109,6 +112,15 @@ RSpec.describe Cache::Object::ActiveRecord do
         it 'yields to super with cache' do
           expect(super_clazz).to receive(:where).with(:id => 12).once { double(first: true) }
           clazz.find_by_id(12)
+        end
+      end
+    end
+
+    describe '.find_by' do
+      describe 'caching interactions' do
+        it 'yields to super with cache' do
+          expect(super_clazz).to receive(:find_by).with(name: 12).once { double(first: true) }
+          clazz.find_by(name: 12)
         end
       end
     end

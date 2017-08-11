@@ -3,7 +3,8 @@ require 'logger'
 
 ActiveRecord::Migration.verbose = false
 ActiveRecord::Base.logger = Logger.new($STDOUT)
-ActiveRecord::Base.establish_connection(:adapter => 'sqlite3', :database => ':memory:')
+ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: ':memory:')
+ActiveRecord::Base.raise_in_transactional_callbacks = true if ActiveRecord::Base.respond_to?(:raise_in_transactional_callbacks=)
 
 module ActiveRecord
   class QueryCounter

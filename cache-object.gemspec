@@ -6,15 +6,14 @@ require 'cache/object/version'
 Gem::Specification.new do |spec|
   spec.name          = 'cache-object'
   spec.version       = Cache::Object::VERSION
-  spec.authors       = ['Matt Camuto']
-  spec.email         = ['dev@wanelo.com']
-  spec.summary       = %q{Object R/W Caching}
-  spec.description   = %q{Object R/W Caching on top of ActiveRecord}
-  spec.homepage      = ''
+  spec.authors       = ['Matt Camuto', 'Paul Henry', 'Konstantin Gredeskoul', 'Eric Saxby', 'Siyamed Sinir', 'Server Cimen']
+  spec.email         = ['dev@wanelo.com', 'kigster@gmail.com']
+  spec.summary       = %q{Cache ActiveRecord objects either by ID or by any other lookup field.}
+  spec.description   = %q{Cache ActiveRecord objects either by ID or by any other lookup field.}
+  spec.homepage      = 'https://github.com/wanelo/cache-object'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
- # spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
@@ -31,5 +30,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'guard'
   spec.add_development_dependency 'guard-rspec'
   spec.add_development_dependency 'sqlite3'
-
 end

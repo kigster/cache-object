@@ -94,6 +94,12 @@ module Cache
           end
         end
 
+        def find_by(*args)
+          Cache::Object.adapter.fetch(self, *args[0]) do
+            super(*args)
+          end
+        end
+
         def find_by_id(id)
           Cache::Object.adapter.fetch(self, id) do
             where(self.primary_key => id).first
